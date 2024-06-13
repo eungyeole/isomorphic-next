@@ -1,6 +1,35 @@
 # next-unified-cookies
 
-> Unified cookie management for server and client in Next.js
+> Unified cookie management for both server and client in Next.js is achievable with a "single implementation."
+
+#### Client
+
+```jsx
+"use client";
+
+import { cookies } from "next-unified-cookies";
+
+export const Client = () => {
+  return <p>client: {cookies().get("name")}</p>;
+};
+```
+
+#### Server
+
+```jsx
+import { cookies } from "next-unified-cookies";
+
+export default function Page() {
+  const cookie = cookies().get("name");
+
+  return (
+    <>
+      <p>server: {cookie}</p>
+      <Client />
+    </>
+  );
+}
+```
 
 ## Installation
 
