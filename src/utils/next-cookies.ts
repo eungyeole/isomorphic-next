@@ -1,6 +1,7 @@
 import type { CookieSerializeOptions } from "cookie";
 
 export const getNextCookies = () => {
+  // Ignore the server-only rule using dynamic import.
   const { cookies } = require("next/headers");
 
   return cookies() as {
