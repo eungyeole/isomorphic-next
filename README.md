@@ -1,11 +1,11 @@
-# next-unified-cookie
+# next-unified-cookies
 
 > Unified cookie management for server and client in Next.js
 
 ## Installation
 
 ```bash
-$ npm install next-universal-cookie
+$ npm install next-unified-cookies
 ```
 
 ### Spec:

@@ -1,5 +1,5 @@
 {
-  "name": "next-unified-cookie",
+  "name": "next-unified-cookies",
   "description": "Unified cookie management for server and client in Next.js",
   "version": "0.0.1",
   "main": "./dist/index.js",
