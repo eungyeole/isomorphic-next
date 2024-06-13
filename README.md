@@ -12,7 +12,7 @@ $ npm install next-universal-cookie
 
 > We will follow the official Next.js documentation for handling cookies as described in the "API Reference for the cookies function." By adhering to these guidelines, we ensure our implementation is robust and up-to-date with Next.js standards.
 
-For more details, please refer to the official documentation: Next.js cookies function API Reference.
+For more details, please refer to the official documentation: [Next.js cookies function API Reference](https://nextjs.org/docs/app/api-reference/functions/cookies).
 
 #### `cookies().get(key)`
 
