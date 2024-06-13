@@ -1,7 +1,6 @@
 {
-  "name": "unified-next",
-  "description": "Unified cookie management for server and client in Next.js",
-  "version": "0.0.2",
+  "name": "unified-next-utils",
+  "version": "0.0.1",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -20,14 +19,6 @@
   "homepage": "https://github.com/eungyeole/next-unified-cookies#readme",
   "files": [
     "dist"
-  ],
-  "keywords": [
-    "next",
-    "next.js",
-    "nextjs",
-    "cookie",
-    "cookies",
-    "rsc"
   ],
   "scripts": {
     "build": "tsup",

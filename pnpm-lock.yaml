@@ -4,39 +4,109 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-dependencies:
-  cookie:
-    specifier: ^0.6.0
-    version: 0.6.0
-  next:
-    specifier: ^14 || ^13
-    version: 13.0.0(react-dom@18.3.1)(react@18.3.1)
+importers:
 
-devDependencies:
-  '@biomejs/biome':
-    specifier: 1.6.1
-    version: 1.6.1
-  '@changesets/cli':
-    specifier: ^2.27.1
-    version: 2.27.1
-  '@rsbuild/core':
-    specifier: ^0.5.1
-    version: 0.5.1
-  '@types/chrome':
-    specifier: ^0.0.263
-    version: 0.0.263
-  '@types/cookie':
-    specifier: ^0.6.0
-    version: 0.6.0
-  '@types/node':
-    specifier: ^20.11.30
-    version: 20.11.30
-  tsup:
-    specifier: ^8.0.2
-    version: 8.0.2(typescript@5.4.2)
-  typescript:
-    specifier: ^5.4.2
-    version: 5.4.2
+  .:
+    dependencies:
+      cookie:
+        specifier: ^0.6.0
+        version: 0.6.0
+      next:
+        specifier: '>=13'
+        version: 13.0.0(react-dom@18.3.1)(react@18.3.1)
+    devDependencies:
+      '@biomejs/biome':
+        specifier: 1.6.1
+        version: 1.6.1
+      '@changesets/cli':
+        specifier: ^2.27.1
+        version: 2.27.1
+      '@rsbuild/core':
+        specifier: ^0.5.1
+        version: 0.5.1
+      '@types/chrome':
+        specifier: ^0.0.263
+        version: 0.0.263
+      '@types/cookie':
+        specifier: ^0.6.0
+        version: 0.6.0
+      '@types/node':
+        specifier: ^20.11.30
+        version: 20.11.30
+      tsup:
+        specifier: ^8.0.2
+        version: 8.0.2(typescript@5.4.2)
+      typescript:
+        specifier: ^5.4.2
+        version: 5.4.2
+
+  packages/unitfied-headers:
+    dependencies:
+      cookie:
+        specifier: ^0.6.0
+        version: 0.6.0
+      next:
+        specifier: '>=13'
+        version: 13.0.0(react-dom@18.3.1)(react@18.3.1)
+    devDependencies:
+      '@biomejs/biome':
+        specifier: 1.6.1
+        version: 1.6.1
+      '@changesets/cli':
+        specifier: ^2.27.1
+        version: 2.27.1
+      '@rsbuild/core':
+        specifier: ^0.5.1
+        version: 0.5.1
+      '@types/chrome':
+        specifier: ^0.0.263
+        version: 0.0.263
+      '@types/cookie':
+        specifier: ^0.6.0
+        version: 0.6.0
+      '@types/node':
+        specifier: ^20.11.30
+        version: 20.11.30
+      tsup:
+        specifier: ^8.0.2
+        version: 8.0.2(typescript@5.4.2)
+      typescript:
+        specifier: ^5.4.2
+        version: 5.4.2
+
+  shared/utils:
+    dependencies:
+      cookie:
+        specifier: ^0.6.0
+        version: 0.6.0
+      next:
+        specifier: '>=13'
+        version: 13.0.0(react-dom@18.3.1)(react@18.3.1)
+    devDependencies:
+      '@biomejs/biome':
+        specifier: 1.6.1
+        version: 1.6.1
+      '@changesets/cli':
+        specifier: ^2.27.1
+        version: 2.27.1
+      '@rsbuild/core':
+        specifier: ^0.5.1
+        version: 0.5.1
+      '@types/chrome':
+        specifier: ^0.0.263
+        version: 0.0.263
+      '@types/cookie':
+        specifier: ^0.6.0
+        version: 0.6.0
+      '@types/node':
+        specifier: ^20.11.30
+        version: 20.11.30
+      tsup:
+        specifier: ^8.0.2
+        version: 8.0.2(typescript@5.4.2)
+      typescript:
+        specifier: ^5.4.2
+        version: 5.4.2
 
 packages:
 
