@@ -1,4 +1,4 @@
-import cookie from "cookie";
+import * as cookie from "cookie";
 import { getNextCookies } from "./utils/next-cookies";
 import { isClient } from "./utils/is-client";
 
