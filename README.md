@@ -37,7 +37,7 @@ import { nextCookies } from 'isomorphic-next';
 
 ## Contributing
 
-We welcome contributions to isomorphic-next! If you have any suggestions, bug reports, or pull requests, please open an issue on our [GitHub repository](https://github.com/yourusername/isomorphic-next).
+We welcome contributions to isomorphic-next! If you have any suggestions, bug reports, or pull requests, please open an issue on our [GitHub repository](https://github.com/eungyeole/isomorphic-next).
 
 ## License
 
