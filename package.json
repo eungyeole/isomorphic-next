@@ -1,12 +1,12 @@
 {
-  "name": "unified-next",
-  "description": "Unified cookie management for server and client in Next.js",
-  "version": "0.0.2",
+  "name": "isomorphic-next",
+  "description": "A \"single implementation\" for both server and client in Next.js is possible.",
+  "version": "0.0.1-Prerelease",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
+    "./headers": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs",

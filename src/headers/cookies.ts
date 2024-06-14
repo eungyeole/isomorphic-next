@@ -1,15 +1,15 @@
 import * as cookie from "cookie";
-import { getNextCookies } from "./utils/next-cookies";
-import { isClient } from "./utils/is-client";
+import { isClient } from "../utils/is-client.js";
+import { nextCookies } from "../lib/next-cookies.js";
 
-class NextUnifiedCookies {
+class NextIsomorphicCookies {
   get = (key: string) => {
     if (isClient()) {
       const cookies = cookie.parse(document.cookie);
       return cookies[key];
     }
 
-    const cookies = getNextCookies();
+    const cookies = nextCookies();
     return cookies.get(key)?.value;
   };
 
@@ -18,7 +18,7 @@ class NextUnifiedCookies {
       return cookie.parse(document.cookie);
     }
 
-    const cookies = getNextCookies();
+    const cookies = nextCookies();
     return cookies.getAll();
   };
 
@@ -34,7 +34,7 @@ class NextUnifiedCookies {
       return;
     }
 
-    const cookies = getNextCookies();
+    const cookies = nextCookies();
     cookies.set(key, stringifiedValue, options);
   };
 
@@ -44,7 +44,7 @@ class NextUnifiedCookies {
       return;
     }
 
-    const cookies = getNextCookies();
+    const cookies = nextCookies();
     cookies.delete(key);
   };
 
@@ -53,9 +53,9 @@ class NextUnifiedCookies {
       return Boolean(cookie.parse(document.cookie)[key]);
     }
 
-    const cookies = getNextCookies();
+    const cookies = nextCookies();
     return cookies.has(key);
   };
 }
 
-export const cookies = () => new NextUnifiedCookies();
+export const cookies = () => new NextIsomorphicCookies();
