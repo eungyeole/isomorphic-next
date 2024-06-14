@@ -29,7 +29,7 @@ Here's a basic example of how to use isomorphic-next to access cookies and heade
 ### Accessing Cookies
 
 ```javascript
-import { nextCookies } from 'isomorphic-next';
+import { cookies, headers } from 'isomorphic-next';
 
 ```
 
