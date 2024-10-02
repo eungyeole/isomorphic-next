@@ -32,16 +32,16 @@ class NextIsomorphicCookies {
     value: unknown,
     options?: cookie.CookieSerializeOptions
   ) => {
-    const stringifiedValue =
-      value instanceof Object ? JSON.stringify(value) : String(value);
-
     if (isClient()) {
+      const stringifiedValue =
+        value instanceof Object ? JSON.stringify(value) : String(value);
+
       document.cookie = cookie.serialize(key, stringifiedValue, options);
       return;
     }
 
     const cookies = nextCookies();
-    cookies.set(key, stringifiedValue, options);
+    cookies.set(key, value, options);
   };
 
   delete = (key: string) => {

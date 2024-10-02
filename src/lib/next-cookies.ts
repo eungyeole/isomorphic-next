@@ -11,7 +11,11 @@ export const nextCookies = () => {
       value: string;
     }>;
     has: (key: string) => boolean;
-    set: (key: string, value: string, options?: CookieSerializeOptions) => void;
+    set: (
+      key: string,
+      value: unknown,
+      options?: CookieSerializeOptions
+    ) => void;
     delete: (key: string) => void;
   };
 };
