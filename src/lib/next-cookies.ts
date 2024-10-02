@@ -6,7 +6,10 @@ export const nextCookies = () => {
 
   return cookies() as {
     get: (key: string) => { value: string | undefined };
-    getAll: () => Record<string, string>;
+    getAll: () => Array<{
+      name: string;
+      value: string;
+    }>;
     has: (key: string) => boolean;
     set: (key: string, value: string, options?: CookieSerializeOptions) => void;
     delete: (key: string) => void;

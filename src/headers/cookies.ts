@@ -15,7 +15,12 @@ class NextIsomorphicCookies {
 
   getAll = () => {
     if (isClient()) {
-      return cookie.parse(document.cookie);
+      const parsedCookies = cookie.parse(document.cookie);
+
+      return Object.entries(parsedCookies).map(([name, value]) => ({
+        name,
+        value,
+      }));
     }
 
     const cookies = nextCookies();
@@ -27,7 +32,8 @@ class NextIsomorphicCookies {
     value: unknown,
     options?: cookie.CookieSerializeOptions
   ) => {
-    const stringifiedValue = JSON.stringify(value);
+    const stringifiedValue =
+      value instanceof Object ? JSON.stringify(value) : String(value);
 
     if (isClient()) {
       document.cookie = cookie.serialize(key, stringifiedValue, options);
