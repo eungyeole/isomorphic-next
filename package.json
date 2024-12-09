@@ -1,23 +1,22 @@
 {
   "name": "isomorphic-next",
   "description": "A \"single implementation\" for both server and client in Next.js is possible.",
-  "version": "0.0.3",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/headers/index.js",
+  "types": "./dist/headers/index.d.ts",
   "exports": {
     "./headers": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "default": "./dist/index.js"
+      "types": "./dist/headers/index.d.ts",
+      "react-server": "./dist/headers/index.react-server.js",
+      "default": "./dist/headers/index.js"
     }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eungyeole/next-unified-cookies.git"
+    "url": "git+https://github.com/eungyeole/isomorphic-next.git"
   },
-  "homepage": "https://github.com/eungyeole/next-unified-cookies#readme",
+  "homepage": "https://github.com/eungyeole/isomorphic-next#readme",
   "files": [
     "dist"
   ],
@@ -37,7 +36,12 @@
     "ci:publish": "pnpm publish -r"
   },
   "license": "MIT",
-  "type": "module",
+  "peerDependencies": {
+    "next": "^14.0.0"
+  },
+  "dependencies": {
+    "cookie": "^0.6.0"
+  },
   "devDependencies": {
     "@biomejs/biome": "1.6.1",
     "@changesets/cli": "^2.27.1",
@@ -47,11 +51,5 @@
     "@types/node": "^20.11.30",
     "tsup": "^8.0.2",
     "typescript": "^5.4.2"
-  },
-  "peerDependencies": {
-    "next": ">=13"
-  },
-  "dependencies": {
-    "cookie": "^0.6.0"
   }
 }
