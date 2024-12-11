@@ -1,4 +1,5 @@
 import * as cookie from "cookie";
+import { stringfy } from "./utils/stringfy";
 
 class NextIsomorphicCookies {
   get = (key: string) => {
@@ -20,8 +21,7 @@ class NextIsomorphicCookies {
     value: unknown,
     options?: cookie.CookieSerializeOptions
   ) => {
-    const stringifiedValue =
-      value instanceof Object ? JSON.stringify(value) : String(value);
+    const stringifiedValue = stringfy(value);
 
     document.cookie = cookie.serialize(key, stringifiedValue, options);
     return;

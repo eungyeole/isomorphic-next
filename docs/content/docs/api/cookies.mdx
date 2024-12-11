@@ -1,0 +1,171 @@
+---
+title: Cookies API
+description: API reference for the cookies module
+---
+
+# Cookies API
+
+The `cookies` module provides methods to read and manipulate cookies consistently across server and client environments.
+
+## Import
+
+```javascript
+import { cookies } from 'isomorphic-next/cookies';
+```
+
+## Methods
+
+### cookies()
+
+Returns the cookies object that provides access to all cookie-related operations.
+
+```javascript
+const cookieStore = cookies();
+```
+
+### get(name)
+
+Retrieves a specific cookie by name.
+
+```javascript
+const themeCookie = cookies().get('theme');
+```
+
+#### Parameters
+- `name` (string): The name of the cookie to retrieve
+
+#### Returns
+- `{ name: string; value: string } | undefined`: Cookie object if found, undefined otherwise
+
+### getAll()
+
+Returns all available cookies.
+
+```javascript
+const allCookies = cookies().getAll();
+```
+
+#### Returns
+- `Array<{ name: string; value: string }>`: Array of all cookie objects
+
+### set(name, value, options?)
+
+Sets a cookie with the specified name and value.
+
+```javascript
+cookies().set('theme', 'dark', {
+  maxAge: 7 * 24 * 60 * 60, // 1 week
+  path: '/',
+});
+```
+
+#### Parameters
+- `name` (string): Cookie name
+- `value` (string): Cookie value
+- `options` (CookieOptions): Optional cookie configuration
+
+### delete(name)
+
+Removes a cookie by name.
+
+```javascript
+cookies().delete('theme');
+```
+
+#### Parameters
+- `name` (string): The name of the cookie to delete
+
+## Types
+
+```typescript
+interface CookieOptions {
+  maxAge?: number;
+  expires?: Date;
+  path?: string;
+  domain?: string;
+  secure?: boolean;
+  httpOnly?: boolean;
+  sameSite?: 'Strict' | 'Lax' | 'None';
+}
+
+interface Cookies {
+  get(name: string): { name: string; value: string } | undefined;
+  getAll(): Array<{ name: string; value: string }>;
+  set(name: string, value: string, options?: CookieOptions): void;
+  delete(name: string): void;
+}
+```
+
+## Cookie Options
+
+### maxAge
+Time in seconds until the cookie expires.
+
+### expires
+Specific date when the cookie should expire.
+
+### path
+Path on the server for which the cookie is valid.
+
+### domain
+Domain for which the cookie is valid.
+
+### secure
+If true, cookie is only transmitted over secure HTTPS.
+
+### httpOnly
+If true, cookie is inaccessible to JavaScript's Document.cookie API.
+
+### sameSite
+Controls how the cookie behaves with cross-site requests:
+- 'Strict': Only sent in first-party context
+- 'Lax': Sent with navigation to origin site
+- 'None': Sent in all contexts (requires secure: true)
+
+## Best Practices
+
+1. Always set appropriate security options for cookies containing sensitive data
+2. Use httpOnly for cookies that don't need client-side access
+3. Consider setting appropriate sameSite options
+4. Implement proper error handling for cookie operations
+
+## Examples
+
+### Managing User Preferences
+
+```javascript
+import { cookies } from 'isomorphic-next/cookies';
+
+// Setting user preferences
+function setThemePreference(theme: 'light' | 'dark') {
+  cookies().set('theme', theme, {
+    maxAge: 365 * 24 * 60 * 60, // 1 year
+    path: '/',
+  });
+}
+
+// Reading user preferences
+function getThemePreference() {
+  const theme = cookies().get('theme');
+  return theme?.value ?? 'light';
+}
+```
+
+### Handling Authentication
+
+```javascript
+import { cookies } from 'isomorphic-next/cookies';
+
+function setAuthToken(token: string) {
+  cookies().set('auth-token', token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'strict',
+    path: '/',
+  });
+}
+
+function clearAuthToken() {
+  cookies().delete('auth-token');
+}
+```

@@ -1,0 +1,56 @@
+---
+title: Contributing Guide
+description: How to contribute to isomorphic-next
+---
+
+# Contributing to isomorphic-next
+
+We welcome contributions to isomorphic-next! This guide will help you get started with contributing to the project.
+
+## Development Setup
+
+1. Fork the repository
+2. Clone your fork:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/isomorphic-next.git
+   ```
+3. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+4. Create a new branch:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+## Development Workflow
+
+1. Make your changes
+2. Write or update tests if necessary
+3. Run tests:
+   ```bash
+   pnpm test
+   ```
+4. Build the project:
+   ```bash
+   pnpm build
+   ```
+5. Commit your changes using conventional commits
+6. Push to your fork and submit a pull request
+
+## Pull Request Guidelines
+
+- Follow the existing code style
+- Include tests for new features
+- Update documentation for API changes
+- Use conventional commits for commit messages
+
+## Code Style
+
+- Use TypeScript
+- Follow ESLint rules
+- Format code using Prettier
+
+## License
+
+By contributing to isomorphic-next, you agree that your contributions will be licensed under the MIT License.

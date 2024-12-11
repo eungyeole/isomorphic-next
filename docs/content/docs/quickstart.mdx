@@ -1,0 +1,66 @@
+---
+title: Quick Start
+description: Get started with isomorphic-next in minutes
+---
+
+# Quick Start
+
+## Installation
+
+Choose your preferred package manager to install isomorphic-next:
+
+```bash
+# Using npm
+npm install isomorphic-next
+
+# Using yarn
+yarn add isomorphic-next
+
+# Using pnpm
+pnpm add isomorphic-next
+```
+
+## Basic Usage
+
+### 1. Manage Cookies
+
+```javascript
+import { cookies } from "isomorphic-next/headers";
+
+// Set a cookie
+cookies().set("theme", "dark", {
+  maxAge: 7 * 24 * 60 * 60, // 1 week
+  path: "/",
+});
+
+// Get a cookie
+const theme = cookies().get("theme");
+
+// Delete a cookie
+cookies().delete("theme");
+```
+
+### 2. Access Headers
+
+```javascript
+import { headers } from "isomorphic-next/headers";
+
+// Access headers in any component
+function MyComponent() {
+  const contentType = headers().get("content-type");
+  const userAgent = headers().get("user-agent");
+
+  return (
+    <div>
+      <p>Content Type: {contentType}</p>
+      <p>User Agent: {userAgent}</p>
+    </div>
+  );
+}
+```
+
+## Next Steps
+
+- Check out our [detailed examples](/examples) for more advanced usage
+- Read the [API reference](/api) for complete documentation
+- Learn how to [contribute](/contributing) to the project

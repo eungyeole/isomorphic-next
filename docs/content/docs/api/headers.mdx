@@ -1,0 +1,142 @@
+---
+title: Headers API 🧪
+description: API reference for the headers module
+---
+
+# Headers API
+
+<Callout title="Experimental">
+  This is an experimental feature and may change in the future.
+</Callout>
+
+The `headers` module provides a unified way to access HTTP headers in both server
+and client environments.
+
+## Import
+
+```javascript
+import { headers } from "isomorphic-next/headers";
+```
+
+## Methods
+
+### headers()
+
+Returns the headers object that provides access to all request headers.
+
+```javascript
+const headersList = headers();
+```
+
+### get(name)
+
+Retrieves the value of a specific header.
+
+```javascript
+const userAgent = headers().get("user-agent");
+```
+
+#### Parameters
+
+- `name` (string): The name of the header to retrieve
+
+#### Returns
+
+- `string | null`: The header value if found, null otherwise
+
+### has(name)
+
+Checks if a specific header exists.
+
+```javascript
+const hasContentType = headers().has("content-type");
+```
+
+#### Parameters
+
+- `name` (string): The name of the header to check
+
+#### Returns
+
+- `boolean`: True if the header exists, false otherwise
+
+### entries()
+
+Returns an iterator of all header entries.
+
+```javascript
+for (const [name, value] of headers().entries()) {
+  console.log(`${name}: ${value}`);
+}
+```
+
+### keys()
+
+Returns an iterator of all header names.
+
+```javascript
+for (const name of headers().keys()) {
+  console.log(name);
+}
+```
+
+### values()
+
+Returns an iterator of all header values.
+
+```javascript
+for (const value of headers().values()) {
+  console.log(value);
+}
+```
+
+## Types
+
+```typescript
+interface Headers {
+  get(name: string): string | null;
+  has(name: string): boolean;
+  entries(): IterableIterator<[string, string]>;
+  keys(): IterableIterator<string>;
+  values(): IterableIterator<string>;
+}
+```
+
+## Best Practices
+
+1. Header names are case-insensitive
+2. Use the `has()` method to check for header existence before accessing
+3. Consider fallback values when headers might not be present
+
+## Examples
+
+### Basic Usage
+
+```javascript
+import { headers } from "isomorphic-next/headers";
+
+function MyComponent() {
+  const contentType = headers().get("content-type");
+  const userAgent = headers().get("user-agent");
+
+  return (
+    <div>
+      <p>Content Type: {contentType}</p>
+      <p>User Agent: {userAgent}</p>
+    </div>
+  );
+}
+```
+
+### Iterating Over Headers
+
+```javascript
+import { headers } from "isomorphic-next/headers";
+
+function logAllHeaders() {
+  const headersList = headers();
+  for (const [name, value] of headersList.entries()) {
+    console.log(`${name}: ${value}`);
+  }
+}
+```
