@@ -11,11 +11,5 @@ export const baseOptions: BaseLayoutProps = {
   nav: {
     title: "Isomorphic Next",
   },
-  links: [
-    {
-      text: "Documentation",
-      url: "/",
-      active: "nested-url",
-    },
-  ],
+  githubUrl: "https://github.com/eungyeole/isomorphic-next",
 };
