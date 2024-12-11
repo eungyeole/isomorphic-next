@@ -7,35 +7,35 @@ description: Practical examples of using isomorphic-next in your Next.js applica
 
 ## Basic Usage
 
-### Reading Headers
-
-```javascript
-import { headers } from 'isomorphic-next/headers';
-
-// In any component or page
-function MyComponent() {
-  const userAgent = headers().get('user-agent');
-  return <div>Your browser: {userAgent}</div>;
-}
-```
-
 ### Managing Cookies
 
 ```javascript
-import { cookies } from 'isomorphic-next/headers';
+import { cookies } from "isomorphic-next/headers";
 
 // Setting a cookie
 function setUserPreference(theme: string) {
-  cookies().set('theme', theme, {
+  cookies().set("theme", theme, {
     maxAge: 30 * 24 * 60 * 60, // 30 days
-    path: '/',
+    path: "/",
   });
 }
 
 // Reading a cookie
 function getUserPreference() {
-  const theme = cookies().get('theme');
-  return theme?.value ?? 'light';
+  const theme = cookies().get("theme");
+  return theme?.value ?? "light";
+}
+```
+
+### Reading Headers
+
+```javascript
+import { headers } from "isomorphic-next/headers";
+
+// In any component or page
+function MyComponent() {
+  const userAgent = headers().get("user-agent");
+  return <div>Your browser: {userAgent}</div>;
 }
 ```
 
@@ -44,54 +44,38 @@ function getUserPreference() {
 ### Authentication Token Management
 
 ```javascript
-import { cookies } from 'isomorphic-next/headers';
+import { cookies } from "isomorphic-next/headers";
 
 export function handleLogin(token: string) {
-  cookies().set('auth-token', token, {
+  cookies().set("auth-token", token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
-    path: '/',
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    path: "/",
   });
 }
 
 export function handleLogout() {
-  cookies().delete('auth-token');
+  cookies().delete("auth-token");
 }
 
 export function getAuthToken() {
-  return cookies().get('auth-token')?.value;
-}
-```
-
-### API Request Headers
-
-```javascript
-import { headers } from 'isomorphic-next/headers';
-
-async function fetchData() {
-  const response = await fetch('https://api.example.com/data', {
-    headers: {
-      'Authorization': `Bearer ${headers().get('authorization')}`,
-      'Content-Type': 'application/json',
-    },
-  });
-  return response.json();
+  return cookies().get("auth-token")?.value;
 }
 ```
 
 ### Language Preference
 
 ```javascript
-import { cookies, headers } from 'isomorphic-next/headers';
+import { cookies, headers } from "isomorphic-next/headers";
 
 function getPreferredLanguage() {
   // First check cookie preference
-  const cookieLang = cookies().get('preferred-language')?.value;
+  const cookieLang = cookies().get("preferred-language")?.value;
   if (cookieLang) return cookieLang;
 
   // Fall back to Accept-Language header
-  const acceptLanguage = headers().get('accept-language');
-  return acceptLanguage?.split(',')[0] ?? 'en';
+  const acceptLanguage = headers().get("accept-language");
+  return acceptLanguage?.split(",")[0] ?? "en";
 }
 ```

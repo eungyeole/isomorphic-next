@@ -24,38 +24,30 @@ pnpm add isomorphic-next
 
 ### 1. Manage Cookies
 
+#### Client Components
+
 ```javascript
+"use client";
 import { cookies } from "isomorphic-next/headers";
 
-// Set a cookie
-cookies().set("theme", "dark", {
-  maxAge: 7 * 24 * 60 * 60, // 1 week
-  path: "/",
-});
+function ClientComponent() {
+  // Use cookies here
+  const cookieValue = cookies().get("sidebarOpen");
 
-// Get a cookie
-const theme = cookies().get("theme");
-
-// Delete a cookie
-cookies().delete("theme");
+  return <>{cookieValue}</>;
+}
 ```
 
-### 2. Access Headers
+#### Server Components
 
 ```javascript
-import { headers } from "isomorphic-next/headers";
+import { cookies } from "isomorphic-next/cookies";
 
-// Access headers in any component
-function MyComponent() {
-  const contentType = headers().get("content-type");
-  const userAgent = headers().get("user-agent");
+function ServerComponent() {
+  // Use cookies here
+  const cookieValue = cookies().get("sidebarOpen");
 
-  return (
-    <div>
-      <p>Content Type: {contentType}</p>
-      <p>User Agent: {userAgent}</p>
-    </div>
-  );
+  return <>{cookieValue}</>;
 }
 ```
 
